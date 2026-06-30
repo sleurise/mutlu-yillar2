@@ -21,22 +21,18 @@
             box-sizing: border-box;
         }
 
-        /* Kutucuğu yanlara doğru büyüttük (max-width: 700px yaptık) */
+        /* Arkadaki alanı yanlara doğru iyice büyüttük (850px yaptık, çok daha ferah) */
         .card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 40px 35px;
+            padding: 40px 45px;
             border-radius: 20px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 700px; 
+            max-width: 850px; 
             width: 95%;
             z-index: 10;
             transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.01);
         }
 
         .quote {
@@ -63,17 +59,24 @@
             margin-bottom: 20px;
         }
 
-        /* Fotoğrafların yan yana 3'lü durması için grid ayarı */
+        /* 2 Sütunlu Düzen: Sol taraf 3 foto, Sağ taraf 3 foto */
         .foto-galeri {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Tam olarak yan yana 3 sütun */
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr); /* Yan yana tam 2 eşit sütun */
+            gap: 25px; /* Fotoğrafların arası açıldı, ferahladı */
             margin-top: 35px;
+        }
+
+        /* Her sütunun kendi içinde fotoğrafları alt alta dizmesi için sütun yapısı */
+        .foto-sutun {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Alt alta duran fotoların arası */
         }
 
         .foto-galeri img {
             width: 100%;
-            height: 160px; /* Kutunun içine sığması için yüksekliği eşitledik */
+            height: 200px; /* Fotoğrafların dikeyde ezilmemesi için ideal yükseklik */
             object-fit: cover;
             border-radius: 12px;
             border: 2px solid rgba(255, 74, 117, 0.3);
@@ -81,7 +84,7 @@
         }
 
         .foto-galeri img:hover {
-            transform: scale(1.05);
+            transform: scale(1.03);
             border-color: #ff4a75;
             box-shadow: 0 5px 15px rgba(255, 74, 117, 0.3);
         }
@@ -97,53 +100,3 @@
         }
 
         @keyframes fall {
-            to {
-                transform: translateY(110vh) rotate(360deg);
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="card">
-        <div class="quote">"İki balığı aynı fanusa koyarsan zaten aşık olurlar, önemli olan okyanusta aşık olabilmek..."</div>
-        
-        <h1>İyi ki doğdun bitaneemmm ❤️</h1>
-        
-        <p>Bundan 8 ay önce verdiğim söz artık pek de değerli değil çünkü artık farkındayım ki birini sevmek ve değer vermek için nedenlere ihtiyacım yok...</p>
-        
-        <p>Çünkü birine değer verince hepsi zaten kendiliğinden geliyormuş, onu fark ettim. Umarım senin benim hayatıma kattığın kadar ben de seninkine katmışımdır demek istiyorum ama sanırım sen direkt komple hayatım haline geldin.</p>
-        
-        <div class="foto-galeri">
-            <img src="foto1.jpg.jpeg" alt="Biz 1">
-            <img src="foto2.jpg.jpeg" alt="Biz 2">
-            <img src="foto3.jpg.jpeg" alt="Biz 3">
-            
-            <img src="2181499817209854.jpg" alt="Biz 4">
-            <img src="indir (6).jpg" alt="Biz 5">
-            <img src="oughh me.jpg" alt="Biz 6">
-        </div>
-    </div>
-
-    <script>
-        function kalpOlustur() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerText = '❤️';
-            
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-            heart.style.fontSize = Math.random() * 20 + 10 + "px";
-            heart.style.opacity = Math.random();
-            
-            document.body.appendChild(heart);
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-
-        setInterval(kalpOlustur, 300);
-    </script>
-</body>
-</html>
