@@ -21,17 +21,22 @@
             box-sizing: border-box;
         }
 
+        /* Kutucuğu yanlara doğru büyüttük (max-width: 700px yaptık) */
         .card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 40px 30px;
+            padding: 40px 35px;
             border-radius: 20px;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 500px;
-            width: 90%;
+            max-width: 700px; 
+            width: 95%;
             z-index: 10;
             transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.01);
         }
 
         .quote {
@@ -58,17 +63,17 @@
             margin-bottom: 20px;
         }
 
-        /* Fotoğraf Galerisi Tasarımı */
+        /* Fotoğrafların yan yana 3'lü durması için grid ayarı */
         .foto-galeri {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* Tam olarak yan yana 3 sütun */
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
         .foto-galeri img {
             width: 100%;
-            height: 180px;
+            height: 160px; /* Kutunun içine sığması için yüksekliği eşitledik */
             object-fit: cover;
             border-radius: 12px;
             border: 2px solid rgba(255, 74, 117, 0.3);
@@ -76,15 +81,9 @@
         }
 
         .foto-galeri img:hover {
-            transform: scale(1.04);
+            transform: scale(1.05);
             border-color: #ff4a75;
             box-shadow: 0 5px 15px rgba(255, 74, 117, 0.3);
-        }
-
-        /* Son büyük fotoğrafın alt sırayı kaplaması için */
-        .foto-galeri img.tekli {
-            grid-column: span 2;
-            height: 220px;
         }
 
         /* Kalp Animasyonları */
@@ -115,17 +114,14 @@
         
         <p>Çünkü birine değer verince hepsi zaten kendiliğinden geliyormuş, onu fark ettim. Umarım senin benim hayatıma kattığın kadar ben de seninkine katmışımdır demek istiyorum ama sanırım sen direkt komple hayatım haline geldin.</p>
         
-        <!-- Yüklediğin Fotoğrafların Sıralı Düzeni -->
         <div class="foto-galeri">
-            <!-- Üstte foto1, foto2 ve foto3 -->
             <img src="foto1.jpg.jpeg" alt="Biz 1">
             <img src="foto2.jpg.jpeg" alt="Biz 2">
             <img src="foto3.jpg.jpeg" alt="Biz 3">
             
-            <!-- Altında diğer isimli olan fotoğraflar -->
             <img src="2181499817209854.jpg" alt="Biz 4">
             <img src="indir (6).jpg" alt="Biz 5">
-            <img src="oughh me.jpg" class="tekli" alt="Biz 6">
+            <img src="oughh me.jpg" alt="Biz 6">
         </div>
     </div>
 
@@ -147,7 +143,6 @@
             }, 5000);
         }
 
-        // Arka planda sürekli yavaşça akan kalpler
         setInterval(kalpOlustur, 300);
     </script>
 </body>
