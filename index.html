@@ -100,3 +100,59 @@
         }
 
         @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="quote">"İki balığı aynı fanusa koyarsan zaten aşık olurlar, önemli olan okyanusta aşık olabilmek..."</div>
+        
+        <h1>İyi ki doğdun bitaneemmm ❤️</h1>
+        
+        <p>Bundan 8 ay önce verdiğim söz artık pek de değerli değil çünkü artık farkındayım ki birini sevmek ve değer vermek için nedenlere ihtiyacım yok...</p>
+        
+        <p>Çünkü birine değer verince hepsi zaten kendiliğinden geliyormuş, onu fark ettim. Umarım senin benim hayatıma kattığın kadar ben de seninkine katmışımdır demek istiyorum ama sanırım sen direkt komple hayatım haline geldin.</p>
+        
+        <div class="foto-galeri">
+            
+            <div class="foto-sutun">
+                <img src="foto1.jpg.jpeg" alt="Biz 1">
+                <img src="foto2.jpg.jpeg" alt="Biz 2">
+                <img src="foto3.jpg.jpeg" alt="Biz 3">
+            </div>
+            
+            <div class="foto-sutun">
+                <img src="2181499817209854.jpg" alt="Biz 4">
+                <img src="indir (6).jpg" alt="Biz 5">
+                <img src="oughh me.jpg" alt="Biz 6">
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function kalpOlustur() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = '❤️';
+            
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            heart.style.fontSize = Math.random() * 20 + 10 + "px";
+            heart.style.opacity = Math.random();
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(kalpOlustur, 300);
+    </script>
+</body>
+</html>
