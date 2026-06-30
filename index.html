@@ -17,7 +17,7 @@
             min-height: 100vh;
             overflow-x: hidden;
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0;
             box-sizing: border-box;
         }
 
@@ -32,10 +32,6 @@
             width: 90%;
             z-index: 10;
             transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: scale(1.02);
         }
 
         .quote {
@@ -62,35 +58,33 @@
             margin-bottom: 20px;
         }
 
-        /* Kutucuklar Grid Yapısı */
-        .grid-container {
+        /* Fotoğraf Galerisi Tasarımı */
+        .foto-galeri {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
             margin-top: 30px;
         }
 
-        .grid-item {
-            background: rgba(255, 74, 117, 0.1);
-            border: 1px solid rgba(255, 74, 117, 0.3);
+        .foto-galeri img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
             border-radius: 12px;
-            padding: 15px 10px;
-            font-size: 0.85rem;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 70px;
+            border: 2px solid rgba(255, 74, 117, 0.3);
             transition: all 0.3s ease;
-            cursor: pointer;
-            line-height: 1.3;
         }
 
-        .grid-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 74, 117, 0.25);
+        .foto-galeri img:hover {
+            transform: scale(1.04);
             border-color: #ff4a75;
-            box-shadow: 0 5px 15px rgba(255, 74, 117, 0.2);
+            box-shadow: 0 5px 15px rgba(255, 74, 117, 0.3);
+        }
+
+        /* Son büyük fotoğrafın alt sırayı kaplaması için */
+        .foto-galeri img.tekli {
+            grid-column: span 2;
+            height: 220px;
         }
 
         /* Kalp Animasyonları */
@@ -121,16 +115,17 @@
         
         <p>Çünkü birine değer verince hepsi zaten kendiliğinden geliyormuş, onu fark ettim. Umarım senin benim hayatıma kattığın kadar ben de seninkine katmışımdır demek istiyorum ama sanırım sen direkt komple hayatım haline geldin.</p>
         
-        <div class="grid-container">
-            <div class="grid-item">Çünkü beni hep güldürüyorsun</div>
-            <div class="grid-item">Kod yazmandaki zekân</div>
-            <div class="grid-item">Süper kahve yapman</div>
-            <div class="grid-item">Beni dinlemen</div>
-            <div class="grid-item">Gelecek hayallerimiz</div>
-            <div class="grid-item">Müziğe olan tutkun</div>
-            <div class="grid-item">Sabrın ve anlayışın</div>
-            <div class="grid-item">Maceralara açık olman</div>
-            <div class="grid-item">Sadece sensin</div>
+        <!-- Yüklediğin Fotoğrafların Sıralı Düzeni -->
+        <div class="foto-galeri">
+            <!-- Üstte foto1, foto2 ve foto3 -->
+            <img src="foto1.jpg.jpeg" alt="Biz 1">
+            <img src="foto2.jpg.jpeg" alt="Biz 2">
+            <img src="foto3.jpg.jpeg" alt="Biz 3">
+            
+            <!-- Altında diğer isimli olan fotoğraflar -->
+            <img src="2181499817209854.jpg" alt="Biz 4">
+            <img src="indir (6).jpg" alt="Biz 5">
+            <img src="oughh me.jpg" class="tekli" alt="Biz 6">
         </div>
     </div>
 
